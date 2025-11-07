@@ -1,0 +1,352 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* Quick Reactions Bar */
+.quick-reactions-bar {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.reaction-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reaction-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.reaction-btn:active {
+  transform: scale(0.95);
+}
+
+/* Floating Reactions Container */
+.floating-reactions-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.floating-reaction {
+  position: absolute;
+  bottom: 0;
+  animation: float-up 3s ease-out forwards;
+}
+
+.reaction-emoji {
+  font-size: 3rem;
+  display: block;
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+@keyframes float-up {
+  0% {
+    bottom: 0;
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+    transform: translateY(-50px) rotate(360deg);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Enhanced Emoji Picker */
+.emoji-picker {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--background-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.emoji-picker button {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.emoji-picker button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+}
+
+/* Voice Recognition Indicator */
+.voice-btn.listening {
+  animation: pulse 1.5s ease-in-out infinite;
+  background: #ff4444 !important;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+/* System Messages */
+.system-message {
+  opacity: 0.7;
+  font-style: italic;
+  text-align: center;
+}
+
+.system-message .message-avatar {
+  background: #6c757d !important;
+}
+
+/* Enhanced Video Controls */
+.video-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.video-control-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.video-control-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.video-control-btn.off {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+.video-control-btn.active {
+  background: var(--primary-accent-color);
+}
+
+/* Participant Overlay Controls */
+.participant-overlay-controls {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  gap: 0.25rem;
+  z-index: 10;
+}
+
+.status-icon {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.status-icon:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.status-icon.off {
+  background: rgba(255, 0, 0, 0.6);
+}
+
+.status-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Raised Hand Indicator */
+.raised-hand-indicator {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: rgba(255, 193, 7, 0.9);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  animation: bounce 1s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Camera Off Indicator */
+.camera-off-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Participant Video Placeholder */
+.participant-video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* Chat Input Enhancements */
+.chat-input-form {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.chat-action-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.chat-action-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .quick-reactions-bar {
+    gap: 0.25rem;
+    padding: 0.5rem;
+  }
+
+  .reaction-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+  .reaction-emoji {
+    font-size: 2rem;
+  }
+
+  .emoji-picker {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Accessibility */
+.reaction-btn:focus,
+.video-control-btn:focus,
+.chat-action-btn:focus {
+  outline: 2px solid var(--primary-accent-color);
+  outline-offset: 2px;
+}
+
+/* Loading State for Voice Recognition */
+.voice-btn.listening::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

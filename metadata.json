@@ -1,0 +1,8 @@
+{
+  "name": "VibeCast",
+  "description": "VibeCast is a next-generation social streaming platform designed to turn passive viewing into a shared, interactive event.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}
